@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>graphicalboard module &mdash; Recursion 0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Recursion 0 documentation" href="index.html" />
+    <link rel="next" title="console_main module" href="console_main.html" />
+    <link rel="prev" title="minesweeper module" href="minesweeper.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="console_main.html" title="console_main module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="minesweeper.html" title="minesweeper module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Recursion 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="graphicalboard-module">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">graphicalboard</span></code> module<a class="headerlink" href="#graphicalboard-module" title="Permalink to this headline">¶</a></h1>
+<p>Ce module fournit essentiellement une fonction de création d’une fenêtre graphique pour
+jouer au démineur. Il nécessite les modules <code class="xref py py-mod docutils literal notranslate"><span class="pre">cell</span></code> et <code class="xref py py-mod docutils literal notranslate"><span class="pre">minesweeper</span></code>.</p>
+<ul>
+<li><p class="first">Création d’une fenêtre de jeu :</p>
+<dl class="function">
+<dt id="graphicalboard.create">
+<code class="descclassname">graphicalboard.</code><code class="descname">create</code><span class="sig-paren">(</span><em>game</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphicalboard.html#create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphicalboard.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function creates the graphical board from a game. It also
+launches the event loop. Thus, this is the only function to run to
+have a functional graphical board.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>game</strong> (<a class="reference internal" href="minesweeper.html#minesweeper.Minesweeper" title="minesweeper.Minesweeper"><em>Minesweeper</em></a>) – the minesweeper game</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</li>
+<li><p class="first">Gestion des évènements (clics) :</p>
+<dl class="function">
+<dt id="graphicalboard.__changestate">
+<code class="descclassname">graphicalboard.</code><code class="descname">__changestate</code><span class="sig-paren">(</span><em>board</em>, <em>game</em>, <em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphicalboard.html#__changestate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphicalboard.__changestate" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is called on left-click on a button.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>board</strong> (list of list of <code class="docutils literal notranslate"><span class="pre">button</span></code>) – the board of buttons</li>
+<li><strong>game</strong> – the minesweeper game</li>
+<li><strong>x</strong> (<em>int</em>) – the x-coordinate of the cell</li>
+<li><strong>y</strong> (<em>int</em>) – the y-coordinate of the cell</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="graphicalboard.__changeflag">
+<code class="descclassname">graphicalboard.</code><code class="descname">__changeflag</code><span class="sig-paren">(</span><em>evt</em>, <em>board</em>, <em>game</em>, <em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphicalboard.html#__changeflag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphicalboard.__changeflag" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is called on right-click on a button.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>board</strong> (list of list of <code class="docutils literal notranslate"><span class="pre">button</span></code>) – the board of buttons</li>
+<li><strong>game</strong> (<a class="reference internal" href="minesweeper.html#minesweeper.Minesweeper" title="minesweeper.Minesweeper"><em>Minesweeper</em></a>) – the minesweeper game</li>
+<li><strong>x</strong> (<em>int</em>) – the x-coordinate of the cell</li>
+<li><strong>y</strong> (<em>int</em>) – the y-coordinate of the cell</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="graphicalboard.__redraw">
+<code class="descclassname">graphicalboard.</code><code class="descname">__redraw</code><span class="sig-paren">(</span><em>board</em>, <em>game</em>, <em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphicalboard.html#__redraw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphicalboard.__redraw" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function draws the board. Positions x and y are used to test
+which bomb icon has to be drawn.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>board</strong> (list of list of <code class="docutils literal notranslate"><span class="pre">button</span></code>) – the board of buttons</li>
+<li><strong>game</strong> (<em>game</em>) – the minesweeper game</li>
+<li><strong>x</strong> (<em>int</em>) – the x-coordinate of the cell</li>
+<li><strong>y</strong> (<em>int</em>) – the y-coordinate of the cell</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</li>
+<li><p class="first">Gestion de la partie (gagnant / perdant) :</p>
+<dl class="function">
+<dt id="graphicalboard.__test_end">
+<code class="descclassname">graphicalboard.</code><code class="descname">__test_end</code><span class="sig-paren">(</span><em>board</em>, <em>game</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphicalboard.html#__test_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphicalboard.__test_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function tests if the game is finished or not.  In the first
+case, depending on the state of the game, all graphical cells are
+diabled or events are unbinded.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>board</strong> (list of list of <code class="docutils literal notranslate"><span class="pre">button</span></code>) – the board of buttons</li>
+<li><strong>game</strong> (<a class="reference internal" href="minesweeper.html#minesweeper.Minesweeper" title="minesweeper.Minesweeper"><em>Minesweeper</em></a>) – the minesweeper game</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="graphicalboard.__block_game">
+<code class="descclassname">graphicalboard.</code><code class="descname">__block_game</code><span class="sig-paren">(</span><em>board</em>, <em>game</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphicalboard.html#__block_game"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphicalboard.__block_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is called once the player wins. The chosen behavior
+is to let the board as it and to unbind events.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>board</strong> (list of list of <code class="docutils literal notranslate"><span class="pre">button</span></code>) – the board of buttons</li>
+<li><strong>game</strong> (<a class="reference internal" href="minesweeper.html#minesweeper.Minesweeper" title="minesweeper.Minesweeper"><em>Minesweeper</em></a>) – the minesweeper game</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="graphicalboard.__disable_game">
+<code class="descclassname">graphicalboard.</code><code class="descname">__disable_game</code><span class="sig-paren">(</span><em>board</em>, <em>game</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphicalboard.html#__disable_game"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphicalboard.__disable_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is called once the player looses. The chosen behavior
+is to shade the board and to unbind events.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>board</strong> (list of list of <code class="docutils literal notranslate"><span class="pre">button</span></code>) – the board of buttons</li>
+<li><strong>game</strong> (<a class="reference internal" href="minesweeper.html#minesweeper.Minesweeper" title="minesweeper.Minesweeper"><em>Minesweeper</em></a>) – the minesweeper game</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/UL-FST-informatique-rvb.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="minesweeper.html"
+                        title="previous chapter"><code class="docutils literal notranslate"><span class="pre">minesweeper</span></code> module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="console_main.html"
+                        title="next chapter"><code class="docutils literal notranslate"><span class="pre">console_main</span></code> module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/graphicalboard.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="console_main.html" title="console_main module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="minesweeper.html" title="minesweeper module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Recursion 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        ;<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/"> <img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>. <a href="http://www.fil.univ-lille1.fr">2018, Emilie  Pathammavong, Oliver  Irwin, FIL, FST, Univ. Lille</a>.
+      Last updated on 09/10/2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.9.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+
+
+************************************************
+*                                              *
+*        MINESWEEPER - CONSOLE EDITION	       *
+*                                              *
+************************************************
+
+
+	Welcome to the Minesweeper® 
+	---------------------------
+
+
+The rules of the game are as follows : 
+
+
+You are assigned, as a Bomb Defusal Team member,
+to  dispose  of  a  certain number of bombs in a
+field. To keep things light, breezy and fun, the
+field  has  been  modelised as  a grid of cells.
+
+
+Each cell may or may not contain a bomb.  To get
+to  clear  the  whole  field, you must carefully
+reveal  the  empty  cells.  If  a  cell you have
+revealed  happens to have bombs in it's vicinity
+(any of it's eight neighbours), it will tell you
+how many.
+
+
+To  make things a little faster when playing, if
+you  happen  to  reveal  an  empty cell, it will
+reveal  all  empty  cells  until there is a cell
+with bombs in it's vicinity.
+
+
+   ‘Tread lightly, 
+       as one bad step is  all  it  takes...’
+			
+			K. A. BOUM (1976-2018)
+
+
+Type HELP for game help or <ENTER> to start
+

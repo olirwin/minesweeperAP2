@@ -1,0 +1,31 @@
+
+
+************************************************
+*                                              *
+*        MINESWEEPER - CONSOLE EDITION	       *
+*                                              *
+************************************************
+
+
+	How to play the Minesweeper® 
+        ---------------------------
+
+
+ * Commands
+  ~~~~~~~~~
+
+When  wanting  to  play,  please  type  in your
+command in the following way :
+
+"Your play x, y, C (C=(R)eveal,(S)et,(U)nset): "
+x, y, action
+
+Example :
+
+"Your play x, y, C (C=(R)eveal,(S)et,(U)nset): "
+3, 2, R
+
+ ---> Reveals the cell in coordinates (3, 2)
+
+
+    ARE YOU READY NOW ? PRESS <ENTER>
