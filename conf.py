@@ -55,7 +55,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = "Recursion"
+project = "Démineur	"
 copyright = "2018, Emilie  Pathammavong, Oliver  Irwin, FIL, FST, Univ. Lille"
 author = "Emilie  Pathammavong, Oliver  Irwin"
 

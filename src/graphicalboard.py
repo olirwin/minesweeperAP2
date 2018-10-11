@@ -57,7 +57,10 @@ def create(game):
     # create a new Tk window
     win = tk.Tk()
     # define the window title
-    win.title('Minesweeper ({:d} bombs)'.format(game.get_nbombs()))
+    if game.get_nbombs() == 1 :
+        win.title('Minesweeper for dummies ({:d} bomb)'.format(game.get_nbombs()))
+    else :
+        win.title('Minesweeper ({:d} bombs)'.format(game.get_nbombs()))
     # load images
     iconpath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "icons")
     img = [
@@ -102,7 +105,7 @@ def __test_end(board, game):
     :type board: list of list of ``button``
     :param game: the minesweeper game
     :type game: Minesweeper
-    
+
     """
     state = game.get_state()
     if state == GameState.losing:
@@ -124,10 +127,9 @@ def __changestate(board, game, x, y):
     :type y: int
     """
     cell = game.get_cell(x, y)
-    if not cell.is_hypothetic() :
-        game.reveal_all_clear_cells_from(x, y)
-        __redraw(board, game, x, y)
-        __test_end(board, game)
+    game.reveal_clear_cells_if_not_hypothetic(x, y)
+    __redraw(board, game, x, y)
+    __test_end(board, game)
 
 def __changeflag(evt, board, game, x, y):
     """
@@ -142,11 +144,11 @@ def __changeflag(evt, board, game, x, y):
     :param y: the y-coordinate of the cell
     :type y: int
     """
-    cel = game.get_cell(x, y)
-    if not cel.is_hypothetic():
-        cel.set_hypothetic()
+    cell = game.get_cell(x, y)
+    if not cell.is_hypothetic():
+        cell.set_hypothetic()
     else:
-        cel.unset_hypothetic()
+        cell.unset_hypothetic()
     __redraw(board, game, x, y)
     __test_end(board, game)
 

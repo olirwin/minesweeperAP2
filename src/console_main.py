@@ -41,22 +41,50 @@ def main() :
 
     game_manual()
 
+    #On change le titre du terminal pour garder un oeil sur le nombre de bombes
+
+    if nbombs == 1 :
+        title = "Minesweeper for dummies ({:d} bomb)".format(nbombs)
+    else :
+        title = "Minesweeper ({:2d} bombs)".format(nbombs)
+
+    sys.stdout.write("\x1b]0;%s\x07" % title)
+
     #Boucle principale du jeu
 
     while game.get_state() == GameState.unfinished:
-        #On récupère le coup du joueur
-        print_game(game)
-        print("\n Your play x, y, C (C=(R)eveal,(S)et,(U)nset): ")
-        x, y, action = input().split(', ')
-        x = int(x)
-        y = int(y)
 
-        #On joue le coup
+        #On imprime le jeu dans une fenêtre de terminal propre
+
+        os.system("clear")
+        print_game(game)
+
+        #On récupère le coup du joueur
+
+        x = -1
+        y = -1
+        action = "Invalid"
+        while (x not in range(width) or y not in range(height) or action not in ["R", "S", "U"]):
+            try :
+                x, y, action = input("\n Your play x, y, C (C=(R)eveal,(S)et,(U)nset): ").split(',')
+                x = int(x)
+                y = int(y)
+                action = action.strip()
+            except KeyboardInterrupt:
+                raise KeyboardInterrupt()
+            except :
+                print("Your play is ill formed")
+                continue
+
+        print()
         apply_action(x, y, action, game)
+
+
 
     #Fin du jeu et vérification de l'état de la partie
 
     if game.get_state() == GameState.losing:
+        os.system("clear")
         apply_action(x, y, "E", game)
         print_game(game)
         print("\n YOU HAVE LOST THIS GAME... \n")
@@ -75,14 +103,15 @@ def game_manual() :
     :side effect: reads files
     :UC: none
     """
-    manual = open("../manual.txt", "r")
+    path = os.path.abspath(os.path.dirname(__file__))
+    manual = open(os.path.join(path, "../texts/manual.txt"), "r")
     print(manual.read())
     manual.close()
     help = input()
 
     if help.upper()== "HELP" :
         os.system("clear")
-        manual = open("../howtoplay.txt", "r")
+        manual = open(os.path.join(path, "../texts/howtoplay.txt"), "r")
         print(manual.read())
         input()
 
@@ -98,22 +127,49 @@ def print_game(game) :
     :side effect: prints a grid in terminal
     :UC: none
     """
-    #On designe la ligne horizontale
-    ligne = "  "
-    for i in range(game.get_width()):
-        ligne += "+---"
-    ligne += "+"
+    #On crée les lignes horizontales
+
+    #Modèle de ligne intermédiaires
+
+    ligne_inter = "   "
+    ligne_inter += "├───"
+    for i in range(game.get_width()-1):
+        ligne_inter += "┼───"
+    ligne_inter += "┤"
+
+    #Ligne du haut
+
+    ligne_haut = "   "
+    ligne_haut += "┌───"
+    for i in range(game.get_width()-1):
+        ligne_haut += "┬───"
+    ligne_haut += "┐"
+
+    #Ligne du bas
+
+    ligne_bas = "   "
+    ligne_bas += "└───"
+    for i in range(game.get_width()-1):
+        ligne_bas += "┴───"
+    ligne_bas += "┘"
 
     #On imprime le jeu
-    print("  " + "".join("{:4d}".format(i) for i in range(game.get_width())))
-    for i in range(game.get_height()) :
-        colonnes = "{:2d}".format(i)
-        print(ligne)
+
+    print("   " + " ".join("{:3d}".format(i) for i in range(game.get_width())))
+    print(ligne_haut)
+    for i in range(game.get_height()-1) :
+        colonnes = "{:2d} ".format(i)
         for j in range(game.get_width()) :
-            colonnes += "| " + str(game.get_cell(j, i)) + " "
-        colonnes += "|"
+            colonnes += "│ " + str(game.get_cell(j, i)) + " "
+        colonnes += "│"
         print(colonnes)
-    print(ligne)
+        print(ligne_inter)
+    colonnes = "{:2d} ".format(game.get_height()-1)
+    for j in range(game.get_width()) :
+        colonnes += "│ " + str(game.get_cell(j, game.get_height()-1)) + " "
+    colonnes += "│"
+    print(colonnes)
+    print(ligne_bas)
 
 def apply_action(x, y, action, game) :
     """
@@ -131,15 +187,18 @@ def apply_action(x, y, action, game) :
     :side effect: changes the state of the cell (x, y) with the action action
     :UC: none
     """
+
     cell = game.get_cell(x, y)
+
     if action == "R" :
-        game.reveal_all_clear_cells_from(x, y)
+        game.reveal_clear_cells_if_not_hypothetic(x, y)
     elif action == "S" :
         cell.set_hypothetic()
     elif action == "U" :
         cell.unset_hypothetic()
     elif action == "E" :
         game.reveal_all_cells_from(0, 0)
+
 
 if __name__ == '__main__':
     import doctest

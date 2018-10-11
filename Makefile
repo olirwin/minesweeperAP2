@@ -1,4 +1,4 @@
-PROJECT=Recursion
+PROJECT=Démineur	
 AUTHOR11=Emilie 
 AUTHOR12=Pathammavong
 AUTHOR21=Oliver 
