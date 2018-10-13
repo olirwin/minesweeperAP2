@@ -268,20 +268,6 @@ class Minesweeper():
         assert x in range(0, self.__width), "x must be between 0 and the game width"
         assert y in range(0, self.__height), "y must be between 0 and the game height"
 
-#        if not self.get_cell(x, y).is_revealed():
-#            lost = 0
-#            self.get_cell(x, y).reveal()
-#            self.__nbCellsUnrevealed -= 1
-#            if self.get_cell(x, y).is_bomb() :
-#                self.set_state(GameState.losing)
-#                lost += 1
-#            if self.get_cell(x, y).number_of_bombs_in_neighborhood() == 0 and lost == 0:
-#                for (u, v) in neighborhood(x, y, self.__width, self.__height) :
-#                    self.reveal_all_clear_cells_from(u, v)
-#        if self.__nbCellsUnrevealed == self.__nbBombs :
-#            self.set_state(GameState.winning)
-
-
         cell = self.get_cell(x, y)
 
         if cell.is_bomb() :
@@ -303,12 +289,6 @@ class Minesweeper():
     def reveal_clear_cells_if_not_hypothetic(self, x, y):
         if not self.get_cell(x, y).is_hypothetic():
             self.reveal_all_clear_cells_from(x, y)
-
-
-
-
-
-
 
 
 
