@@ -3,8 +3,8 @@
 
 Le Démineur est un jeu emblématique de nombreux systèmes d'exploitation à travers les âges. Nous nous proposons ici d'en réaliser une implémentation rédigée en Python, sous deux formes :
 
--- Une version console, plus adaptée à un format de jeu plus réduit
--- Une version graphique, correspondant à l'image la plus répandue du Démineur
+- Une version console, plus adaptée à un format de jeu plus réduit
+- Une version graphique, correspondant à l'image la plus répandue du Démineur
 
 ### Installation
 
