@@ -50,14 +50,14 @@ Pour lancer et jouer au Démineur :
         
 ### Ajouts
 
--- La version console possède désormais une vraie grille
--- Un texte de présentation apparaît lors du lancement de la version console, permettant également de lancer un tutoriel pour les coups à jouer
--- Le titre de la fenètre de terminal change de la même manière que celui de la version graphique pour avoir une idée du nombre de bombes dans la grille
+- La version console possède désormais une vraie grille
+- Un texte de présentation apparaît lors du lancement de la version console, permettant également de lancer un tutoriel pour les coups à jouer
+- Le titre de la fenètre de terminal change de la même manière que celui de la version graphique pour avoir une idée du nombre de bombes dans la grille
 
 ### TO-DOs
 
--- Ne plus rendre l'apparition du texte de présentation systématique à l'aide d'une option en ligne de commande
--- Ajouter les couleurs au jeu en terminal pour plus de lisibilité
+- Ne plus rendre l'apparition du texte de présentation systématique à l'aide d'une option en ligne de commande
+- Ajouter les couleurs au jeu en terminal pour plus de lisibilité
 
 
 								     . . .
